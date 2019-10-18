@@ -10,7 +10,7 @@ public class Herbivorous extends Animal {
 
     //-----------------------------------------------------------------------------------------------
     public Herbivorous() { }
-    public Herbivorous( String name, String noiseType ) { super( name, noiseType ); }
+    public Herbivorous( String name, String noiseType, Integer amount ) { super( name, noiseType, amount ); }
     //-----------------------------------------------------------------------------------------------
     @Override
     public void react( WeatherStatus weatherStatus,

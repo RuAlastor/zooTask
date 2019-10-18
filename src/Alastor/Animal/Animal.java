@@ -12,14 +12,16 @@ public abstract class Animal {
     public Animal() {
         _isSleeping = false;
         _isNoisy    = false;
-        _name       = "Unknown animal";
-        _noiseType  = "makes inaudible noise...";
+        _name       = "unknown animal(s)";
+        _noiseType  = "make(s) inaudible noise...";
+        _amount     = 0;
     }
-    public Animal( String name, String noiseType ) {
+    public Animal( String name, String noiseType, Integer amount ) {
         _isSleeping = false;
         _isNoisy    = false;
         _name       = name;
         _noiseType  = noiseType;
+        _amount     = amount;
     }
     //-----------------------------------------------------------------------------------------------
     public abstract void react( WeatherStatus weatherStatus,
@@ -37,15 +39,22 @@ public abstract class Animal {
     }
     //-----------------------------------------------------------------------------------------------
     public void reactOnMaster( boolean isMasterIn ) {
-        if ( isMasterIn && isWake() ) _becomeNoisy();
+        if ( isMasterIn && isWake() ) {
+            _becomeNoisy();
+            System.out.println( _name + " react(s) when master enters cell" );
+        }
     }
     //-----------------------------------------------------------------------------------------------
     public void reactOnFood( boolean isFeedingTime ) {
-        if ( isFeedingTime ) _calmDown(); }
+        if ( isFeedingTime ) {
+            _calmDown();
+            System.out.println( _name + " eats" );
+        }
+    }
     //-----------------------------------------------------------------------------------------------
     public boolean makeNoise() {
         if ( isNoisy() ) {
-            System.out.println( _name + " " + _noiseType );
+            System.out.println( _amount.toString() + " " + _name + " " + _noiseType );
             return true;
         }
         return false;
@@ -76,6 +85,7 @@ public abstract class Animal {
     private boolean _isNoisy;
     private String  _name;
     private String  _noiseType;
+    private Integer _amount;
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
