@@ -9,7 +9,8 @@ public class Predator extends Animal {
 //-----------------------------------------------------------------------------
 
     //-----------------------------------------------------------------------------------------------
-    public Predator() {}
+    public Predator() { }
+    public Predator( String name, String noiseType ) { super( name, noiseType ); }
     //-----------------------------------------------------------------------------------------------
     @Override
     public void react( WeatherStatus weatherStatus,
@@ -19,9 +20,6 @@ public class Predator extends Animal {
         reactOnWeather( weatherStatus, isZooNoisy );
         reactOnFood( isFeedingTime );
     }
-    //-----------------------------------------------------------------------------------------------
-    @Override
-    public void makeNoise() { System.out.println( "Growls..." ); }
     //-----------------------------------------------------------------------------------------------
     public void reactOnNoise( boolean isZooNoisy ) {
         if ( isZooNoisy ) _becomeNoisy();

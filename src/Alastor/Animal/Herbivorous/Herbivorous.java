@@ -9,7 +9,8 @@ public class Herbivorous extends Animal {
 //-----------------------------------------------------------------------------
 
     //-----------------------------------------------------------------------------------------------
-    public Herbivorous() {}
+    public Herbivorous() { }
+    public Herbivorous( String name, String noiseType ) { super( name, noiseType ); }
     //-----------------------------------------------------------------------------------------------
     @Override
     public void react( WeatherStatus weatherStatus,
@@ -18,9 +19,6 @@ public class Herbivorous extends Animal {
         reactOnWeather( weatherStatus, isZooNoisy );
         reactOnFood( isFeedingTime );
     }
-    //-----------------------------------------------------------------------------------------------
-    @Override
-    public void makeNoise() { System.out.println( "Screeches..." ); }
     //-----------------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------

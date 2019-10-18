@@ -4,6 +4,7 @@ import Alastor.Status.WeatherStatus;
 
 public abstract class Animal {
 
+// Public METHODS
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 
@@ -11,6 +12,14 @@ public abstract class Animal {
     public Animal() {
         _isSleeping = false;
         _isNoisy    = false;
+        _name       = "Unknown animal";
+        _noiseType  = "makes inaudible noise...";
+    }
+    public Animal( String name, String noiseType ) {
+        _isSleeping = false;
+        _isNoisy    = false;
+        _name       = name;
+        _noiseType  = noiseType;
     }
     //-----------------------------------------------------------------------------------------------
     public abstract void react( WeatherStatus weatherStatus,
@@ -34,8 +43,12 @@ public abstract class Animal {
     public void reactOnFood( boolean isFeedingTime ) {
         if ( isFeedingTime ) _calmDown(); }
     //-----------------------------------------------------------------------------------------------
-    public void makeNoise() {
-        if ( isNoisy() ) System.out.println( "Inaudible noise..." );
+    public boolean makeNoise() {
+        if ( isNoisy() ) {
+            System.out.println( _name + " " + _noiseType );
+            return true;
+        }
+        return false;
     }
     //-----------------------------------------------------------------------------------------------
     public boolean isSleeping() { return _isSleeping; }
@@ -43,6 +56,7 @@ public abstract class Animal {
     public boolean isNoisy()    { return _isNoisy; }
     //-----------------------------------------------------------------------------------------------
 
+// Protected METHODS
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 
@@ -54,11 +68,14 @@ public abstract class Animal {
     protected void _calmDown()    { _isNoisy = false; }
     //-----------------------------------------------------------------------------------------------
 
+// Private VARIABLES
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 
     private boolean _isSleeping;
     private boolean _isNoisy;
+    private String  _name;
+    private String  _noiseType;
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
