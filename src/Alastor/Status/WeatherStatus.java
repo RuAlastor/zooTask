@@ -1,37 +1,32 @@
-package Alastor.Animal;
+package Alastor.Status;
 
-import Alastor.Status.WeatherStatus;
-
-public abstract class Animal {
+public class WeatherStatus {
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 
-    public Animal() {
-        _isSleeping = false;
-        _isNoisy    = false;
+    public WeatherStatus() {
+        _isThunder = false;
+        _isDay     = true;
     }
 
-    public abstract void reactOnWeather( WeatherStatus weatherStatus );
+    public void startThunder() { _isThunder = true; }
+    public void stopThunder()  { _isThunder = false; }
+    public boolean isThunder() { return  _isThunder; }
+
+    public void startDay()     { _isDay = true; }
+    public void startNight()   { _isDay = false; }
+    public boolean isDay()     { return _isDay; }
+    public boolean isNight()   { return  !_isDay; }
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 
-    protected void _goToSleep() { _isSleeping = true; }
-    protected void _wakeUp()    { _isSleeping = false; };
-
-    protected abstract void _makeNoise();
-    protected          void _becomeNoisy() { _isNoisy = true; }
-    protected          void _calmDown()    { _isNoisy = false; }
-
-    protected void _eat() { _calmDown(); }
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-
-    private boolean _isSleeping;
-    private boolean _isNoisy;
-
+    private boolean _isThunder;
+    private boolean _isDay;
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 
