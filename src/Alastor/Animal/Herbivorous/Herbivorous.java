@@ -1,31 +1,26 @@
-package Alastor.Animal.Predator;
+package Alastor.Animal.Herbivorous;
 
 import Alastor.Animal.Animal;
 import Alastor.Status.WeatherStatus;
 
-public class Predator extends Animal {
+public class Herbivorous extends Animal {
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 
     //-----------------------------------------------------------------------------------------------
-    public Predator() {}
+    public Herbivorous() {}
     //-----------------------------------------------------------------------------------------------
     @Override
     public void react( WeatherStatus weatherStatus,
                        boolean isZooNoisy, boolean isMasterIn, boolean isFeedingTime ) {
-        reactOnNoise( isZooNoisy );
         reactOnMaster( isMasterIn );
         reactOnWeather( weatherStatus, isZooNoisy );
         reactOnFood( isFeedingTime );
     }
     //-----------------------------------------------------------------------------------------------
     @Override
-    public void makeNoise() { System.out.println( "Growls..." ); }
-    //-----------------------------------------------------------------------------------------------
-    public void reactOnNoise( boolean isZooNoisy ) {
-        if ( isZooNoisy ) _becomeNoisy();
-    }
+    public void makeNoise() { System.out.println( "Screeches..." ); }
     //-----------------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------
